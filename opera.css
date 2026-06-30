@@ -1,0 +1,70 @@
+/* Fundo geral */
+body {
+    background: #0f0f0f !important;
+    color: #d0d0d0 !important;
+}
+
+/* Links */
+a {
+    color: #bdbdbd !important;
+    text-decoration: none !important;
+}
+
+/* Hover dos links */
+a:hover {
+    color: #ffffff !important;
+}
+
+/* Cards e elementos */
+div,
+section,
+article,
+button {
+    background-color: #1a1a1a !important;
+    border-color: #2c2c2c !important;
+    color: #d0d0d0 !important;
+}
+
+/* Efeito mono nos atalhos */
+img,
+svg,
+video {
+    filter: grayscale(100%) contrast(1.1) brightness(0.9) !important;
+}
+
+/* Barra lateral */
+nav {
+    background: #121212 !important;
+}
+
+/* Barra de pesquisa */
+input,
+textarea {
+    background: #1a1a1a !important;
+    color: #ffffff !important;
+    border: 1px solid #333333 !important;
+}
+
+/* YouTube */
+[href*="youtube.com"] {
+    color: #cfcfcf !important;
+}
+
+/* Reddit */
+[href*="reddit.com"] {
+    color: #cfcfcf !important;
+}
+
+/* Pinterest */
+[href*="pinterest.com"] {
+    color: #cfcfcf !important;
+}
+
+/* Destaques da página inicial */
+.speedDial,
+.tile,
+.card,
+[data-testid] {
+    filter: grayscale(100%) brightness(0.85) contrast(1.05) !important;
+    background: #1a1a1a !important;
+}

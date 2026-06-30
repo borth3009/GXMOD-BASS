@@ -1,0 +1,34 @@
+uniform iChunk;
+uniform float2 iChunkSize;
+uniform float iFrame;
+
+vec4 main(vec2 xy)
+{
+    vec4 color = iChunk.eval(xy);
+
+    vec2 uv = xy / iChunkSize.xy;
+    float t = iFrame * 0.01;
+
+    float s1 = sin((uv.x * 6.0) + (uv.y * 2.0) + t);
+    float s2 = sin((uv.x * 11.0) - (uv.y * 3.0) - t * 0.7);
+    float s3 = sin((uv.x * 4.0) + (uv.y * 8.0) + t * 0.4);
+
+    float smoke = (s1 + s2 * 0.6 + s3 * 0.4);
+    smoke = smoke * 0.5 + 0.5;
+
+    // aumenta contraste do efeito (fica mais “gif de fumaça” visível)
+    smoke = smoothstep(0.25, 0.75, smoke);
+
+    float intensity = smoke * 0.09; // bem mais forte
+
+    // preto e branco real (sem tom colorido)
+    vec3 black = vec3(0.0);
+    vec3 white = vec3(1.0);
+
+    vec3 fogColor = mix(black, white, smoke);
+
+    // mistura mais agressiva, mas sem destruir a imagem base
+    vec3 result = mix(color.rgb, fogColor, intensity);
+
+    return vec4(result, color.a);
+}
